@@ -1,39 +1,40 @@
-Descripción
-Este proyecto es una API RESTful que simula un sistema bancario donde se pueden crear cuentas bancarias, registrar transacciones (depósitos, retiros), aplicar intereses y consultar el historial de transacciones. Se utiliza SQLite como base de datos para pruebas y almacenamiento persistente.
-El proyecto está basado en ASP.NET Core 8.0, y se implementa usando Inyección de Dependencias (DI) para la gestión de servicios como el registro de transacciones.
+>Descripción
+>Este proyecto es una API RESTful que simula un sistema bancario donde se pueden crear cuentas bancarias, registrar transacciones (depósitos, retiros), aplicar intereses y consultar el historial de transacciones. Se utiliza SQLite como base de datos para pruebas y almacenamiento persistente.
 
-Tecnologías utilizadas
-ASP.NET Core 8.0: Framework para construir la API.
+>El proyecto está basado en ASP.NET Core 8.0, y se implementa usando Inyección de Dependencias (DI) para la gestión de servicios como el registro de transacciones.
 
-Entity Framework Core: ORM para interactuar con la base de datos.
+# Tecnologías utilizadas
+* ASP.NET Core 8.0: Framework para construir la API.
 
-SQLite: Base de datos en memoria y persistente.
+* Entity Framework Core: ORM para interactuar con la base de datos.
 
-xUnit: Framework de pruebas unitarias.
+* SQLite: Base de datos en memoria y persistente.
 
-Swagger: Herramienta para documentar y probar la API.
+* xUnit: Framework de pruebas unitarias.
 
-Estructura del Proyecto
+* Swagger: Herramienta para documentar y probar la API.
+
+# Estructura del Proyecto
 Prueba_backend/: Contiene la lógica principal de la aplicación, incluidos los modelos, el contexto de la base de datos y los controladores.
 
-Models/: Define las entidades del sistema como BankAccount, Client, y Transaction.
+* Models/: Define las entidades del sistema como BankAccount, Client, y Transaction.
 
-Data/: Define el contexto de la base de datos BankingContext que interactúa con la base de datos SQLite.
+* Data/: Define el contexto de la base de datos BankingContext que interactúa con la base de datos SQLite.
 
-Controllers/: Define los controladores de la API para manejar solicitudes HTTP.
+* Controllers/: Define los controladores de la API para manejar solicitudes HTTP.
 
-Services/: Contiene los servicios como TransactionService, que gestionan las transacciones y otras lógicas de negocio.
+* Services/: Contiene los servicios como TransactionService, que gestionan las transacciones y otras lógicas de negocio.
 
-Bacnkend.Tests/: Contiene las pruebas unitarias para validar las funcionalidades.
+* Bacnkend.Tests/: Contiene las pruebas unitarias para validar las funcionalidades.
 
-Se utilizan xUnit y SQLite en memoria para realizar las pruebas sin modificar la base de datos real.
+* Se utilizan xUnit y SQLite en memoria para realizar las pruebas sin modificar la base de datos real.
 
-Requisitos previos
-.NET 8.0 SDK: Asegúrate de tener .NET 8.0 SDK instalado en tu máquina. Puedes descargarlo desde aquí.
+# Requisitos previos
+* .NET 8.0 SDK: Asegúrate de tener .NET 8.0 SDK instalado en tu máquina. Puedes descargarlo desde aquí.
 
-SQLite: El proyecto usa SQLite, pero no necesitas instalar nada adicional para pruebas ya que se utiliza en memoria.
+* SQLite: El proyecto usa SQLite, pero no necesitas instalar nada adicional para pruebas ya que se utiliza en memoria.
 
-Configuración del Proyecto
+# Configuración del Proyecto
 1. Cadena de Conexión a SQLite
 La base de datos SQLite está configurada en appsettings.json. La cadena de conexión en memoria se utiliza durante las pruebas, pero también puedes cambiarla para usar una base de datos persistente si es necesario.
 
@@ -91,7 +92,7 @@ app.MapControllers();
 app.Run();
 
 
-Cómo Ejecutar la Aplicación
+# Cómo Ejecutar la Aplicación
 1. Ejecutar la Aplicación
 La aplicación estará disponible en http://localhost:5272 por defecto. Para ejecutar la aplicación, abre una terminal en la carpeta raíz del proyecto y ejecuta el siguiente comando:
 
@@ -139,44 +140,44 @@ POST /api/transactions/withdraw: Realiza un retiro de una cuenta bancaria especi
 
 POST /api/transactions/interest: Aplica intereses a una cuenta bancaria especificada.
 
-¿Cómo Funciona el Servicio de Transacciones?
-El TransactionService es responsable de gestionar las operaciones de depósito, retiro y aplicación de intereses. Este servicio se encuentra registrado en el contenedor de dependencias de ASP.NET Core y se inyecta automáticamente en los controladores que lo necesiten.
+## ¿Cómo Funciona el Servicio de Transacciones?
+> El TransactionService es responsable de gestionar las operaciones de depósito, retiro y aplicación de intereses. Este servicio se encuentra registrado en el contenedor de dependencias de ASP.NET Core y se inyecta automáticamente en los controladores que lo necesiten.
 
-Métodos disponibles en TransactionService:
+* Métodos disponibles en TransactionService:
 DepositAsync: Registra una transacción de depósito en la cuenta bancaria y actualiza su saldo.
 
-WithdrawAsync: Registra una transacción de retiro en la cuenta bancaria, verificando que el saldo sea suficiente antes de realizar la operación.
+* WithdrawAsync: Registra una transacción de retiro en la cuenta bancaria, verificando que el saldo sea suficiente antes de realizar la operación.
 
-ApplyInterestAsync: Aplica un porcentaje de interés al saldo de la cuenta bancaria.
+* ApplyInterestAsync: Aplica un porcentaje de interés al saldo de la cuenta bancaria.
 
 Este enfoque permite realizar las operaciones bancarias de manera centralizada y desacoplada de los controladores, lo que facilita la extensión de funcionalidades en el futuro.
 
-Configuración de Swagger
+## Configuración de Swagger
 Se ha configurado Swagger para facilitar la interacción con la API y la prueba de los endpoints desde un navegador. Swagger genera automáticamente la documentación de la API y permite realizar pruebas interactivas sin la necesidad de herramientas externas.
 
 ara acceder a Swagger y probar los endpoints de la API, simplemente abre http://localhost:5272/swagger en tu navegador.
 
-Resumen
+# Resumen
 Este proyecto proporciona una API RESTful para gestionar un sistema bancario, permitiendo:
 
-Crear cuentas bancarias.
+* Crear cuentas bancarias.
 
-Realizar transacciones de depósito y retiro.
+* Realizar transacciones de depósito y retiro.
 
-Aplicar intereses a las cuentas.
+* Aplicar intereses a las cuentas.
 
-Consultar el saldo y el historial de transacciones.
+* Consultar el saldo y el historial de transacciones.
 
-Tecnologías utilizadas:
-ASP.NET Core 8.0 para el backend.
+### Tecnologías utilizadas:
+* ASP.NET Core 8.0 para el backend.
 
-Entity Framework Core para la gestión de la base de datos.
+* Entity Framework Core para la gestión de la base de datos.
 
-SQLite para el almacenamiento de datos.
+* SQLite para el almacenamiento de datos.
 
-xUnit para las pruebas unitarias.
+* xUnit para las pruebas unitarias.
 
-Swagger para la documentación interactiva de la API.
+* Swagger para la documentación interactiva de la API.
 
 Este sistema está diseñado para ser robusto y fácil de mantener, con pruebas unitarias que garantizan la calidad del código. Además, Swagger facilita la interacción con la API durante el desarrollo y la integración.
 
