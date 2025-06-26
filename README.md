@@ -141,7 +141,7 @@ POST /api/transactions/withdraw: Realiza un retiro de una cuenta bancaria especi
 POST /api/transactions/interest: Aplica intereses a una cuenta bancaria especificada.
 
 ## ¿Cómo Funciona el Servicio de Transacciones?
-> El TransactionService es responsable de gestionar las operaciones de depósito, retiro y aplicación de intereses. Este servicio se encuentra registrado en el contenedor de dependencias de ASP.NET Core y se inyecta automáticamente en los controladores que lo necesiten.
+El TransactionService es responsable de gestionar las operaciones de depósito, retiro y aplicación de intereses. Este servicio se encuentra registrado en el contenedor de dependencias de ASP.NET Core y se inyecta automáticamente en los controladores que lo necesiten.
 
 * Métodos disponibles en TransactionService:
 DepositAsync: Registra una transacción de depósito en la cuenta bancaria y actualiza su saldo.
